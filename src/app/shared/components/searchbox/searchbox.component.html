@@ -1,12 +1,19 @@
-<div class="mx-3">
-  <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off" checked>
-  <label class="btn" for="option6">Capital cities</label>
+<!--routerLinkActive="active"-->
+<!--[routerLinkActiveOptions]="{exact: true}"-->
+<!--class="list-group-item list-group-item-action"-->
+<!--routerLink="{{ item.link }}"-->
 
-  <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off">
-  <label class="btn" for="option7">Countries</label>
+<div class="mx-3 d-flex align-items-center">
+  <span class="text mx-1">Search by: </span>
+  <input
+    type="radio" class="btn-check" name="options-base" id="by-capital" autocomplete="off">
+  <label class="btn" for="by-capital">Capital cities</label>
 
-  <input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
-  <label class="btn" for="option8">Regions</label>
+  <input type="radio" class="btn-check" name="options-base" id="by-country" autocomplete="off" routerLinkActive="active">
+  <label class="btn" for="by-country">Countries</label>
+
+  <input type="radio" class="btn-check" name="options-base" id="by-region" autocomplete="off" routerLinkActive="active">
+  <label class="btn" for="by-region">Regions</label>
 </div>
 
 <div class="input-group mx-3 mt-3">
