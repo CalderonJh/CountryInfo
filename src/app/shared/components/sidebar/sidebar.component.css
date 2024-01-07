@@ -1,0 +1,5 @@
+.active {
+  background-color: rgba(0, 0, 0, 0.48);
+  border-radius: 2px;
+  border-color: transparent;
+}
