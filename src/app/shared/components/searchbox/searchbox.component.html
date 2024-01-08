@@ -7,22 +7,19 @@
   <span class="text-dark m-1">Search by: </span>
   
 
-  <!--  -->
-  <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
-    <input type="radio" routerLink="/search/by-capital" routerLinkActive="active" class=" btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-    <label class="btn btn-outline-success" for="btnradio1">Capital</label>
+  <a  *ngFor="let item of items"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="list-group-item mx-2"
+      routerLink="{{ item.link }}">
+    {{ item.title }}
+  </a>
   
-    <input type="radio" routerLink="/search/by-country" routerLinkActive="active" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-    <label class="btn btn-outline-success" for="btnradio2">Countries</label>
-  
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-    <label class="btn btn-outline-success" for="btnradio3">Region</label>
-  </div>
 </div>
 
 <div>
 <div class="input-group mt-3 col-4 px-5">
-  <input type="text" class="form-control border-black" [placeholder]="_placeholder" aria-label="search" aria-describedby="button-addon2">
+  <input type="text" class="form-control border-black" placeholder="Write here..." aria-label="search" aria-describedby="button-addon2">
   <button class="btn btn-outline-success border-black" type="button" id="button-addon2">
     <!-- lupa -->
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomePageComponent } from '../countries/pages/home-page/home-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
@@ -9,6 +9,7 @@ import { NotFoundPageComponent } from './pages/not-found/not-found-page.componen
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 
 
@@ -21,7 +22,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     NotFoundPageComponent,
     SearchboxComponent,
     NavbarComponent,
-    CarouselComponent
+    CarouselComponent,
+    SearchPageComponent
   ],
   imports: [
     CommonModule,

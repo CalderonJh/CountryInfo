@@ -9,16 +9,24 @@ export class SidebarComponent {
   public sidebarItems = [
     {
       title: 'Home',
-      link:''
+      link:'',
+      exact: true
+    },
+    {
+      title: 'Search',
+      link: 'search',
+      exact: false
     },
     {
       title: 'About',
-      link:'about'
+      link:'about',
+      exact: true
     },
     {
       title: 'Contact',
-      link:'contact'
-    },
+      link:'contact',
+      exact: true
+    }
   ]
 
 }

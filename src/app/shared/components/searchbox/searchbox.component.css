@@ -1,17 +1,7 @@
-.__label{
+a{
     color: black;
-    border: none;
 }
-
-.__input:checked{
-    border: none;
-    background-color: transparent;
-    color: rgb(150, 255, 150);
-
-}
-.__input:current{
-    border: none;
-    background-color: transparent;
-    color: rgb(150, 255, 150);
-
-}
+.active{
+    color: rgb(2, 129, 2);
+    text-decoration: underline;
+}   

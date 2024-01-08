@@ -9,7 +9,7 @@ import {CountryPageComponent} from "./pages/country-page/country-page.component"
 const routes:Routes = [
   {
     path: 'by-capital',
-    component: ByCapitalPageComponent,
+    component: ByCapitalPageComponent
   },
   {
     path: 'by-country',
@@ -21,9 +21,14 @@ const routes:Routes = [
   },
   {
     path: 'by/:id',
-    component: CountryPageComponent,
+    component: CountryPageComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'by-capital'
   }
 ]
+
 
 @NgModule({
   imports: [
