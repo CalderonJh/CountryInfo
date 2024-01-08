@@ -3,20 +3,33 @@
 <!--class="list-group-item list-group-item-action"-->
 <!--routerLink="{{ item.link }}"-->
 
-<div class="mx-3 d-flex align-items-center">
-  <span class="text mx-1">Search by: </span>
-  <input
-    type="radio" class="btn-check" name="options-base" id="by-capital" autocomplete="off">
-  <label class="btn" for="by-capital">Capital cities</label>
+<div class="mx-3 d-flex align-items-center text-light">
+  <span class="text-dark m-1">Search by: </span>
+  
 
-  <input type="radio" class="btn-check" name="options-base" id="by-country" autocomplete="off" routerLinkActive="active">
-  <label class="btn" for="by-country">Countries</label>
-
-  <input type="radio" class="btn-check" name="options-base" id="by-region" autocomplete="off" routerLinkActive="active">
-  <label class="btn" for="by-region">Regions</label>
+  <!--  -->
+  <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" routerLink="/search/by-capital" routerLinkActive="active" class=" btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+    <label class="btn btn-outline-success" for="btnradio1">Capital</label>
+  
+    <input type="radio" routerLink="/search/by-country" routerLinkActive="active" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+    <label class="btn btn-outline-success" for="btnradio2">Countries</label>
+  
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+    <label class="btn btn-outline-success" for="btnradio3">Region</label>
+  </div>
 </div>
 
-<div class="input-group mx-3 mt-3">
-  <input type="text" class="form-control" [placeholder]="_placeholder" aria-label="search" aria-describedby="button-addon2">
-  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+<div>
+<div class="input-group mt-3 col-4 px-5">
+  <input type="text" class="form-control border-black" [placeholder]="_placeholder" aria-label="search" aria-describedby="button-addon2">
+  <button class="btn btn-outline-success border-black" type="button" id="button-addon2">
+    <!-- lupa -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+    </svg>
+  </button>
 </div>
+</div>
+
+<hr class="mx-3">

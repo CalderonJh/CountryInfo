@@ -11,15 +11,18 @@ import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
+        ByCapitalPageComponent,
+        ByCountryPageComponent,
+        ByRegionPageComponent,
+        CountryPageComponent,
+    ],
+  exports: [
     ByCapitalPageComponent,
-    ByCountryPageComponent,
-    ByRegionPageComponent,
-    CountryPageComponent
   ],
-  imports: [
-    CommonModule,
-    CountriesRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        CountriesRoutingModule,
+        SharedModule
+    ]
 })
 export class CountriesModule { }
