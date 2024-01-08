@@ -1,30 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ByCapitalPageComponent } from './pages/by-capital-page/by-capital-page.component';
-import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.component';
-import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
-import { CountryPageComponent } from './pages/country-page/country-page.component';
+import { ByCapitalComponent } from './components/by-capital-component/by-capital.component';
+import { ByCountryComponent } from './components/by-country-component/by-country.component';
+import { ByRegionComponent } from './components/by-region-component/by-region.component';
+import { CountryPageComponent } from './components/country-page/country-page.component';
 import {CountriesRoutingModule} from "./countries-routing.module";
 import {SharedModule} from "../shared/shared.module";
 import { RouterModule } from '@angular/router';
+import { SearchService } from '../shared/services/search.service';
 
 
 
 @NgModule({
   declarations: [
-        ByCapitalPageComponent,
-        ByCountryPageComponent,
-        ByRegionPageComponent,
-        CountryPageComponent,
-    ],
-  exports: [
-    ByCapitalPageComponent,
+    ByCapitalComponent,
+    ByCountryComponent,
+    ByRegionComponent,
+    CountryPageComponent,
   ],
-    imports: [
-      CommonModule,
-      RouterModule,
-      CountriesRoutingModule,
-      SharedModule
-    ]
+  exports: [
+    ByCapitalComponent,
+  ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    CountriesRoutingModule,
+    SharedModule
+  ],
+  providers: [
+    SearchService
+  ]
 })
 export class CountriesModule { }

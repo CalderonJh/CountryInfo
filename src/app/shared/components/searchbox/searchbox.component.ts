@@ -1,4 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, ViewChild, ElementRef} from '@angular/core';
+import { SearchService } from '../../services/search.service';
+import { SharingService } from '../../../core/services/sharing.service';
 
 @Component({
   selector: 'shared-searchbox',
@@ -6,6 +8,9 @@ import {Component, Input} from '@angular/core';
   styleUrl: './searchbox.component.css'
 })
 export class SearchboxComponent {
+
+  @ViewChild('tagInput')
+  public tagInput!: ElementRef<HTMLInputElement>;
 
   public items = [
     {
@@ -26,7 +31,12 @@ export class SearchboxComponent {
     }
   ]
 
-  @Input()
-  public _placeholder: string = '';
+  constructor(public sharingService:SharingService){}
+
+  search() {
+   this.sharingService.searchObservableValue = {value:this.tagInput.nativeElement.value};
+  }
+
+
 
 }

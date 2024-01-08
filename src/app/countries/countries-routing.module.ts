@@ -1,23 +1,23 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
-import {ByCapitalPageComponent} from "./pages/by-capital-page/by-capital-page.component";
-import {ByCountryPageComponent} from "./pages/by-country-page/by-country-page.component";
-import {ByRegionPageComponent} from "./pages/by-region-page/by-region-page.component";
-import {CountryPageComponent} from "./pages/country-page/country-page.component";
+import {ByCapitalComponent} from "./components/by-capital-component/by-capital.component";
+import {ByCountryComponent} from "./components/by-country-component/by-country.component";
+import {ByRegionComponent} from "./components/by-region-component/by-region.component";
+import {CountryPageComponent} from "./components/country-page/country-page.component";
 
 
 const routes:Routes = [
   {
     path: 'by-capital',
-    component: ByCapitalPageComponent
+    component: ByCapitalComponent
   },
   {
     path: 'by-country',
-    component: ByCountryPageComponent,
+    component: ByCountryComponent,
   },
   {
     path: 'by-region',
-    component: ByRegionPageComponent,
+    component: ByRegionComponent,
   },
   {
     path: 'by/:id',

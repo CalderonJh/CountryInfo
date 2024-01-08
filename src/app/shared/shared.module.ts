@@ -10,6 +10,7 @@ import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { SearchService } from './services/search.service';
 
 
 
@@ -38,6 +39,9 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
     SearchboxComponent,
     NavbarComponent,
     CarouselComponent
+  ],
+  providers: [
+    SearchService
   ]
 })
 export class SharedModule { }

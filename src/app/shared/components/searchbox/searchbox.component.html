@@ -19,7 +19,15 @@
 
 <div>
 <div class="input-group mt-3 col-4 px-5">
-  <input type="text" class="form-control border-black" placeholder="Write here..." aria-label="search" aria-describedby="button-addon2">
+  <input 
+    #tagInput
+    type="text" 
+    class="form-control border-black"
+    placeholder="Write here..." 
+    aria-label="search" 
+    aria-describedby="button-addon2"
+    (keyup.enter)="search()"
+  >
   <button class="btn btn-outline-success border-black" type="button" id="button-addon2">
     <!-- lupa -->
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
