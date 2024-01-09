@@ -11,7 +11,6 @@ export class SearchService {
   constructor(private http: HttpClient) {}
 
   private baseURL: string = 'https://restcountries.com/v3.1';
-  private _countries: Country[] = [];
 
   private _searchboxObservable: BehaviorSubject<SearchItem> =
     new BehaviorSubject<SearchItem>({ value: 'default' });
@@ -23,10 +22,6 @@ export class SearchService {
         console.log(res);
         this._searchboxObservable.next({ value, res });
       });
-  }
-
-  get countries(): Country[] {
-    return this._countries;
   }
 
   get searchboxObservable() {
