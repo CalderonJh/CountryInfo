@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharingService } from './services/sharing.service';
-
-
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ],
-  providers:[SharingService]
+  imports: [CommonModule],
+  providers: [SearchService],
 })
-export class CoreModule { }
+export class CoreModule {}
