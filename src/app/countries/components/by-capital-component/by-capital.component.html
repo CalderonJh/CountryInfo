@@ -1,16 +1,6 @@
-<button class="btn btn-primary">
-  Un buton
-</button>
-
-<h2>Bucando por capital {{(data$ | async)?.value}}</h2>
+<p> Search with {{ (data$ | async)?.value }} as  capital</p>
 <ul>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
+  <li *ngFor="let country of (data$ | async)?.res">
+    {{country.capital}}
+  </li>
 </ul>

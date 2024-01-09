@@ -4,12 +4,9 @@ import { ByCapitalComponent } from './components/by-capital-component/by-capital
 import { ByCountryComponent } from './components/by-country-component/by-country.component';
 import { ByRegionComponent } from './components/by-region-component/by-region.component';
 import { CountryPageComponent } from './components/country-page/country-page.component';
-import {CountriesRoutingModule} from "./countries-routing.module";
-import {SharedModule} from "../shared/shared.module";
-import { RouterModule } from '@angular/router';
+import { CountriesRoutingModule } from './countries-routing.module';
+import { SharedModule } from '../shared/shared.module';
 import { SearchService } from '../shared/services/search.service';
-
-
 
 @NgModule({
   declarations: [
@@ -18,17 +15,8 @@ import { SearchService } from '../shared/services/search.service';
     ByRegionComponent,
     CountryPageComponent,
   ],
-  exports: [
-    ByCapitalComponent,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    CountriesRoutingModule,
-    SharedModule
-  ],
-  providers: [
-    SearchService
-  ]
+  exports: [ByCapitalComponent],
+  imports: [CommonModule, CountriesRoutingModule, SharedModule],
+  providers: [SearchService],
 })
-export class CountriesModule { }
+export class CountriesModule {}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SearchService } from '../../../core/services/search.service';
 import { Observable } from 'rxjs';
 import { SearchItem } from '../../../core/interfaces/search-item';
+import { Country } from '../../../core/interfaces/country';
 
 @Component({
   selector: 'countries-by-capital-page',
@@ -10,7 +11,8 @@ import { SearchItem } from '../../../core/interfaces/search-item';
 })
 export class ByCapitalComponent {
   public data$: Observable<SearchItem>;
-  constructor(sharingService: SearchService) {
-    this.data$ = sharingService.searchboxObservable;
+
+  constructor(searchService: SearchService) {
+    this.data$ = searchService.searchboxObservable;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { SearchService } from '../../../core/services/search.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { SearchService } from '../../../core/services/search.service';
   templateUrl: './searchbox.component.html',
   styleUrl: './searchbox.component.css',
 })
-export class SearchboxComponent {
+export class SearchboxComponent implements AfterViewInit {
   @ViewChild('tagInput')
   public tagInput!: ElementRef<HTMLInputElement>;
 
@@ -29,11 +29,13 @@ export class SearchboxComponent {
     },
   ];
 
-  constructor(public searchService: SearchService) {}
+  constructor(private searchService: SearchService) {}
+
+  ngAfterViewInit(): void {
+    this.tagInput.nativeElement.focus();
+  }
 
   search() {
-    this.searchService.searchObservableValue = {
-      value: this.tagInput.nativeElement.value,
-    };
+    this.searchService.searchByCapital(this.tagInput.nativeElement.value);
   }
 }
