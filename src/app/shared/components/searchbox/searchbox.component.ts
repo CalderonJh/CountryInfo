@@ -32,7 +32,7 @@ export class SearchboxComponent implements AfterViewInit {
     },
     {
       title: 'Code',
-      link: 'by/algo',
+      link: 'by-code',
       route: 'alpha',
     },
   ];
@@ -47,8 +47,10 @@ export class SearchboxComponent implements AfterViewInit {
     const route = this.selectBy.nativeElement
       .querySelector('.active')
       ?.getAttribute('id');
-    if (route && this.isValidSearch())
+    if (route && this.isValidSearch()) {
       this.searchService.search(route, this.tagInput.nativeElement.value);
+      // this.tagInput.nativeElement.blur()
+    }
   }
 
   isValidSearch(): boolean {
@@ -57,5 +59,9 @@ export class SearchboxComponent implements AfterViewInit {
       .replace(/\s+/g, ' ')
       .toLocaleLowerCase('en-US');
     return value.length > 0;
+  }
+
+  selectText() {
+    this.tagInput.nativeElement.select();
   }
 }

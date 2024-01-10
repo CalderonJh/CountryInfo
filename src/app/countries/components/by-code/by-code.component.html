@@ -1,1 +1,3 @@
-<p>by-code works!</p>
+<countries-country-table
+  [_countries]="(data$ | async)?.byCodeRes"
+></countries-country-table>
