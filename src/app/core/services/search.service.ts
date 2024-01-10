@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class SearchService {
+  // TODO: al cambiar de ruta, si el search value es válido realizar búsqueda automáticamente
+
   constructor(private http: HttpClient) {}
 
   private baseURL: string = 'https://restcountries.com/v3.1';
@@ -15,9 +17,9 @@ export class SearchService {
   private _searchboxObservable: BehaviorSubject<SearchItem> =
     new BehaviorSubject<SearchItem>({ value: 'default' });
 
-  searchByCapital(value: string) {
+  search(route: string, value: string) {
     return this.http
-      .get<Country[]>(`${this.baseURL}/capital/${value}`)
+      .get<Country[]>(`${this.baseURL}/${route}/${value}`)
       .subscribe((res) => {
         console.log(res);
         this._searchboxObservable.next({ value, res });

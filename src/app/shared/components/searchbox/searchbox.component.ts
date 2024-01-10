@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { SearchService } from '../../../core/services/search.service';
+import { RadioButton } from '../../interfaces/radio-button';
 
 @Component({
   selector: 'shared-searchbox',
@@ -10,22 +11,29 @@ export class SearchboxComponent implements AfterViewInit {
   @ViewChild('tagInput')
   public tagInput!: ElementRef<HTMLInputElement>;
 
-  public items = [
+  @ViewChild('selectBY')
+  public selectBy!: ElementRef<HTMLDivElement>;
+
+  public items: RadioButton[] = [
     {
-      title: 'Capital cities',
+      title: 'Capital city',
       link: 'by-capital',
+      route: 'capital',
     },
     {
       title: 'Countries',
       link: 'by-country',
+      route: 'name',
     },
     {
       title: 'Region',
       link: 'by-region',
+      route: 'region',
     },
     {
-      title: 'Enter an id',
+      title: 'Code',
       link: 'by/algo',
+      route: 'alpha',
     },
   ];
 
@@ -35,7 +43,20 @@ export class SearchboxComponent implements AfterViewInit {
     this.tagInput.nativeElement.focus();
   }
 
-  search() {
-    this.searchService.searchByCapital(this.tagInput.nativeElement.value);
+  searchByCapital() {
+    const route = this.selectBy.nativeElement
+      .querySelector('.active')
+      ?.getAttribute('id');
+    console.log(route);
+    if (route && this.isValidSearch())
+      this.searchService.search(route, this.tagInput.nativeElement.value);
+  }
+
+  isValidSearch(): boolean {
+    const value = this.tagInput.nativeElement.value
+      .trim()
+      .replace(/\s+/g, ' ')
+      .toLocaleLowerCase('en-US');
+    return value.length > 0;
   }
 }

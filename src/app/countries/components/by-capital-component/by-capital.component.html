@@ -1,4 +1,4 @@
-<p> Search with {{ (data$ | async)?.value }} as  capital</p>
+<p> Search with «{{ (data$ | async)?.value }}» as  capital</p>
 <ul>
   <li *ngFor="let country of (data$ | async)?.res">
     {{country.capital}}
