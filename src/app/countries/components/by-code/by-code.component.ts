@@ -6,7 +6,7 @@ import { SearchService } from '../../../core/services/search.service';
 @Component({
   selector: 'countries-by-code',
   templateUrl: './by-code.component.html',
-  styleUrl: './by-code.component.css',
+  styles: '',
 })
 export class ByCodeComponent {
   public data$: Observable<SearchItem>;

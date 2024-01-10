@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'countries-carousel',
   templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.css',
+  styles: '',
 })
 export class CarouselComponent {
   // carousel img URLs

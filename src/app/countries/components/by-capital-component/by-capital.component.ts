@@ -14,6 +14,4 @@ export class ByCapitalComponent {
   constructor(searchService: SearchService) {
     this.data$ = searchService.searchboxObservable;
   }
-
-  public showModal() {}
 }

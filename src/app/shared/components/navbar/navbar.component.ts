@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'shared-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styles: '',
 })
-export class NavbarComponent {
-
-}
+export class NavbarComponent {}

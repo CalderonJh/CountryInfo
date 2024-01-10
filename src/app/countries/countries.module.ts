@@ -10,6 +10,7 @@ import { SearchService } from '../shared/services/search.service';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { CountryNotFoundComponent } from './components/country-not-found/country-not-found.component';
 import { ByCodeComponent } from './components/by-code/by-code.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ByCodeComponent } from './components/by-code/by-code.component';
     CountryTableComponent,
     CountryNotFoundComponent,
     ByCodeComponent,
+    ModalComponent,
   ],
   exports: [ByCapitalComponent],
   imports: [CommonModule, CountriesRoutingModule, SharedModule],
