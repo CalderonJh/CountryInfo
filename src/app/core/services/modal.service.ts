@@ -17,5 +17,6 @@ export class ModalService {
 
   set setCountryObservable(modalHelper: ModalHelper) {
     this._countryObservable.next(modalHelper);
+    console.log(this._countryObservable.getValue());
   }
 }

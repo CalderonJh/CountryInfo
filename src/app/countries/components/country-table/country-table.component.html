@@ -23,7 +23,8 @@
         <td>{{ c.capital }}</td>
         <td>{{ c.region }}</td>
         <td>
-          <a
+          <button
+            class="btn btn-sm"
             style="color: rgb(2, 129, 2)"
             data-bs-toggle="modal"
             data-bs-target="#countryModal"
@@ -44,7 +45,7 @@
                 d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
               />
             </svg>
-          </a>
+          </button>
         </td>
       </tr>
     </tbody>
@@ -55,9 +56,8 @@
   <countries-not-found></countries-not-found>
 </ng-template>
 
-<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
-<!--  Launch demo modal-->
-<!--</button>-->
-<!--modal-->
-
-<countries-modal *ngIf="(modalServiceData$ | async)?.show"></countries-modal>
+<countries-modal
+  *ngIf="
+    (modalServiceData$ | async)?.show && (modalServiceData$ | async)?.country
+  "
+></countries-modal>
