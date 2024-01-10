@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ByCapitalComponent } from './components/by-capital-component/by-capital.component';
 import { ByNameComponent } from './components/by-name-component/by-name.component';
 import { ByRegionComponent } from './components/by-region-component/by-region.component';
-import { CountryPageComponent } from './components/country-page/country-page.component';
+import { ByCodeComponent } from './components/by-code/by-code.component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
     component: ByRegionComponent,
   },
   {
-    path: 'by/:id',
-    component: CountryPageComponent,
+    path: 'by/:code',
+    component: ByCodeComponent,
   },
   {
     path: '**',

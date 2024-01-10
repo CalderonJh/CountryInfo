@@ -1,1 +1,9 @@
-<p>by-region-page works!</p>
+<div *ngIf="(data$ | async)?.byRegionRes; else noCountryFound">
+  <countries-country-table
+    [_countries]="(data$ | async)?.byRegionRes"
+  ></countries-country-table>
+</div>
+
+<ng-template #noCountryFound>
+  <countries-not-found></countries-not-found>
+</ng-template>

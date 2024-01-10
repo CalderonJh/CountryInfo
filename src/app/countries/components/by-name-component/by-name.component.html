@@ -1,7 +1,9 @@
-<p *ngIf="!(data$ | async)?.byNameRes"> Waiting...</p>
-<countries-country-table></countries-country-table>
-<ul>
-  <li *ngFor="let country of (data$ | async)?.byNameRes">
-    {{country.name.official}} ({{country.name.common}})
-  </li>
-</ul>
+<div *ngIf="(data$ | async)?.byNameRes; else noCountryFound">
+  <countries-country-table
+    [_countries]="(data$ | async)?.byNameRes"
+  ></countries-country-table>
+</div>
+
+<ng-template #noCountryFound>
+  <countries-not-found></countries-not-found>
+</ng-template>

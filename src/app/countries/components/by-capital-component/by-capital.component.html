@@ -1,9 +1,3 @@
-<p *ngIf="!((data$ | async)?.byCapitalRes)">
-  Esperando para buscar
-</p>
-<ul>
-  <li *ngFor="let country of (data$ | async)?.byCapitalRes">
-    {{ country.name.official }} ({{ country.name.common }}) Capital:
-    {{ country.capital }}
-  </li>
-</ul>
+<countries-country-table
+  [_countries]="(data$ | async)?.byCapitalRes"
+></countries-country-table>

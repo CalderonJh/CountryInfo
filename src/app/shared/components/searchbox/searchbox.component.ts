@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { SearchService } from '../../../core/services/search.service';
 import { RadioButton } from '../../interfaces/radio-button';
 
@@ -28,7 +28,7 @@ export class SearchboxComponent implements AfterViewInit {
     {
       title: 'Region',
       link: 'by-region',
-      route: 'region',
+      route: 'subregion',
     },
     {
       title: 'Code',
@@ -43,11 +43,10 @@ export class SearchboxComponent implements AfterViewInit {
     this.tagInput.nativeElement.focus();
   }
 
-  searchByCapital() {
+  search() {
     const route = this.selectBy.nativeElement
       .querySelector('.active')
       ?.getAttribute('id');
-    console.log(route);
     if (route && this.isValidSearch())
       this.searchService.search(route, this.tagInput.nativeElement.value);
   }

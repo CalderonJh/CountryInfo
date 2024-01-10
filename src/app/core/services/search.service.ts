@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, catchError, of } from 'rxjs';
 import { SearchItem } from '../interfaces/search-item';
 import { Country } from '../interfaces/country';
 import { HttpClient } from '@angular/common/http';
@@ -19,8 +19,10 @@ export class SearchService {
     new BehaviorSubject<SearchItem>({ value: 'default' });
 
   search(route: string, value: string) {
+    // console.log(`endpoint: ${this.baseURL}/${route}/${value}`);
     return this.http
       .get<Country[]>(`${this.baseURL}/${route}/${value}`)
+      .pipe(catchError(() => of([])))
       .subscribe((res) => this.handleSearchResult(route, value, res));
   }
 
@@ -34,7 +36,7 @@ export class SearchService {
     const resultMapping: Record<string, string> = {
       name: 'byNameRes',
       capital: 'byCapitalRes',
-      region: 'byRegionRes',
+      subregion: 'byRegionRes',
       alpha: 'byCodeRes',
     };
 

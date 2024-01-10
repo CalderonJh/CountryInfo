@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchService } from '../shared/services/search.service';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { CountryNotFoundComponent } from './components/country-not-found/country-not-found.component';
+import { ByCodeComponent } from './components/by-code/by-code.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CountryNotFoundComponent } from './components/country-not-found/country
     CountryPageComponent,
     CountryTableComponent,
     CountryNotFoundComponent,
+    ByCodeComponent,
   ],
   exports: [ByCapitalComponent],
   imports: [CommonModule, CountriesRoutingModule, SharedModule],

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { SearchItem } from '../../../core/interfaces/search-item';
 
 @Component({
-  selector: 'countries-by-capital-page',
+  selector: 'countries-by-capital',
   templateUrl: './by-capital.component.html',
   styles: ``,
 })

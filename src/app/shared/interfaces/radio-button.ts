@@ -1,4 +1,4 @@
-type ValidRoutes = 'name' | 'capital' | 'region' | 'alpha';
+type ValidRoutes = 'name' | 'capital' | 'region' | 'alpha' | 'subregion';
 
 export interface RadioButton {
   title: string;
