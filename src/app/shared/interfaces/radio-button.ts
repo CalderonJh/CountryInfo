@@ -1,5 +1,7 @@
+type ValidRoutes = 'name' | 'capital' | 'region' | 'alpha';
+
 export interface RadioButton {
   title: string;
   link: string;
-  route: string;
+  route: ValidRoutes;
 }

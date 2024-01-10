@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class SearchService {
-  // TODO: al cambiar de ruta, si el search value es válido realizar búsqueda automáticamente
+  // TODO: al cambiar de ruta, si el search value es válido (y/o ha cambiado) realizar búsqueda automáticamente
+  // crear distintos res??
 
   constructor(private http: HttpClient) {}
 
@@ -20,13 +21,26 @@ export class SearchService {
   search(route: string, value: string) {
     return this.http
       .get<Country[]>(`${this.baseURL}/${route}/${value}`)
-      .subscribe((res) => {
-        console.log(res);
-        this._searchboxObservable.next({ value, res });
-      });
+      .subscribe((res) => this.handleSearchResult(route, value, res));
   }
 
   get searchboxObservable() {
     return this._searchboxObservable.asObservable();
+  }
+
+  handleSearchResult(route: string, value: string, res: Country[]) {
+    const searchItem: SearchItem = { value };
+
+    const resultMapping: Record<string, string> = {
+      name: 'byNameRes',
+      capital: 'byCapitalRes',
+      region: 'byRegionRes',
+      alpha: 'byCodeRes',
+    };
+
+    const searchKey = resultMapping[route];
+    // @ts-ignore: The key will always be valid
+    searchItem[searchKey] = res;
+    this._searchboxObservable.next(searchItem);
   }
 }

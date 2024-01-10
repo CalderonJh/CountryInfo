@@ -1,6 +1,9 @@
-<p> Search with «{{ (data$ | async)?.value }}» as  capital</p>
+<p *ngIf="!((data$ | async)?.byCapitalRes)">
+  Esperando para buscar
+</p>
 <ul>
-  <li *ngFor="let country of (data$ | async)?.res">
-    {{country.capital}}
+  <li *ngFor="let country of (data$ | async)?.byCapitalRes">
+    {{ country.name.official }} ({{ country.name.common }}) Capital:
+    {{ country.capital }}
   </li>
 </ul>

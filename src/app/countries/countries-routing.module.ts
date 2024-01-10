@@ -1,19 +1,18 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from "@angular/router";
-import {ByCapitalComponent} from "./components/by-capital-component/by-capital.component";
-import {ByCountryComponent} from "./components/by-country-component/by-country.component";
-import {ByRegionComponent} from "./components/by-region-component/by-region.component";
-import {CountryPageComponent} from "./components/country-page/country-page.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ByCapitalComponent } from './components/by-capital-component/by-capital.component';
+import { ByNameComponent } from './components/by-name-component/by-name.component';
+import { ByRegionComponent } from './components/by-region-component/by-region.component';
+import { CountryPageComponent } from './components/country-page/country-page.component';
 
-
-const routes:Routes = [
+const routes: Routes = [
   {
-    path: 'by-capital',
-    component: ByCapitalComponent
+    path: 'by-name',
+    component: ByNameComponent,
   },
   {
-    path: 'by-country',
-    component: ByCountryComponent,
+    path: 'by-capital',
+    component: ByCapitalComponent,
   },
   {
     path: 'by-region',
@@ -21,22 +20,16 @@ const routes:Routes = [
   },
   {
     path: 'by/:id',
-    component: CountryPageComponent
+    component: CountryPageComponent,
   },
   {
     path: '**',
-    redirectTo: 'by-capital'
-  }
-]
-
+    redirectTo: 'by-name',
+  },
+];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class CountriesRoutingModule {
-}
+export class CountriesRoutingModule {}

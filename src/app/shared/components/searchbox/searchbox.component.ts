@@ -16,14 +16,14 @@ export class SearchboxComponent implements AfterViewInit {
 
   public items: RadioButton[] = [
     {
+      title: 'Name',
+      link: 'by-name',
+      route: 'name',
+    },
+    {
       title: 'Capital city',
       link: 'by-capital',
       route: 'capital',
-    },
-    {
-      title: 'Countries',
-      link: 'by-country',
-      route: 'name',
     },
     {
       title: 'Region',
