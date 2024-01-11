@@ -16,11 +16,11 @@
       <tr *ngFor="let c of _countries">
         <td>{{ c.cca2 }}</td>
         <td>
-          <img src="{{c.flags.svg}}" width="40" height="30" alt="flag"/>
+          <img src="{{ c.flags.svg }}" width="40" height="30" alt="flag" />
         </td>
         <td>{{ c.name.official }}</td>
         <td>{{ c.name.common }}</td>
-        <td>{{ c.capital }}</td>
+        <td>{{ c.capital?c.capital[0] :c.capital}}</td>
         <td>{{ c.region }}</td>
         <td>
           <button
@@ -53,44 +53,23 @@
 </div>
 
 <ng-template #noCountry>
-  <countries-not-found></countries-not-found>
+  <countries-not-found [_title]="'There are no countries to show'"></countries-not-found>
 </ng-template>
 
-<!--modal-->
-
-
-<div
-  class="modal fade"
-  id="countryModal"
-  tabindex="-1"
-  aria-hidden="true"
->
-  <div
-    class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
-  >
+<!-- modal -->
+<!-- Modal -->
+<div class="modal fade" id="countryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
-          {{ (data$ | async)?.name?.official }}
-        </h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">More info...</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <countries-modal></countries-modal>
+        <countries-modal [country]="(data$ | async)!"></countries-modal>
       </div>
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-success"
-          data-bs-dismiss="modal"
-        >
-          Wow!
-        </button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Wow!</button>
       </div>
     </div>
   </div>

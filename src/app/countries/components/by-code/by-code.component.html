@@ -1,3 +1,9 @@
-<countries-country-table
-  [_countries]="(data$ | async)?.byCodeRes"
-></countries-country-table>
+<div *ngIf="(data$ | async)?.byCodeRes; else noCountryFound">
+  <countries-country-table
+    [_countries]="(data$ | async)?.byCodeRes"
+  ></countries-country-table>
+</div>
+
+<ng-template #noCountryFound>
+  <countries-not-found></countries-not-found>
+</ng-template>

@@ -25,4 +25,6 @@ export class CountryTableComponent {
   showModal(country: Country) {
     this.modalService.setCountryObservable = country;
   }
+
+  protected readonly Node = Node;
 }
