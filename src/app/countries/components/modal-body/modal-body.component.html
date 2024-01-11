@@ -26,7 +26,9 @@
       </div>
       <div class="col m-2">
         <div *ngFor="let i of infoItems()" class="m-1">
+          <div *ngIf="i._value != 'Not provided'">
           <strong>{{ i.key! }}</strong>  {{i._value || 'Not provided'}} <br />
+          </div>
         </div>
       </div>
     </div>

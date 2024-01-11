@@ -61,6 +61,10 @@ export class ModalBodyComponent {
           _value: toString(this.country.area).concat(' km²'),
         },
         {
+          key: 'Borders:',
+          _value: toString(this.country.borders),
+        },
+        {
           key: 'Population:',
           _value: toString(this.country.population),
         },
@@ -74,7 +78,9 @@ export class ModalBodyComponent {
         },
         {
           key: 'Start of week:',
-          _value: this.country.startOfWeek,
+          _value:
+            this.country.startOfWeek.charAt(0).toUpperCase() +
+            this.country.startOfWeek.slice(1),
         },
       ];
   }
