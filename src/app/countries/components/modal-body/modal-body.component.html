@@ -1,0 +1,11 @@
+<img
+  src="{{
+    (data$ | async)!.flags.png
+  }}"
+  alt="flag"
+/>
+<div>
+  {{
+    (data$ | async)!.name.common
+  }}
+</div>

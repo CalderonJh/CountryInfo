@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { ModalHelper } from '../interfaces/modal-helper';
+import { Subject } from 'rxjs';
+import { Country } from '../interfaces/country';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ModalService {
-  private _countryObservable: BehaviorSubject<ModalHelper> =
-    new BehaviorSubject<ModalHelper>({ show: false });
+  private _countryObservable: Subject<Country> = new Subject<Country>();
 
   constructor() {}
 
@@ -15,8 +14,7 @@ export class ModalService {
     return this._countryObservable.asObservable();
   }
 
-  set setCountryObservable(modalHelper: ModalHelper) {
-    this._countryObservable.next(modalHelper);
-    console.log(this._countryObservable.getValue());
+  set setCountryObservable(country: Country) {
+    this._countryObservable.next(country);
   }
 }

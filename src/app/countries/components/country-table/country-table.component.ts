@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { Country } from '../../../core/interfaces/country';
 import { ModalService } from '../../../core/services/modal.service';
 import { Observable } from 'rxjs';
-import { ModalHelper } from '../../../core/interfaces/modal-helper';
 
 @Component({
   selector: 'countries-country-table',
@@ -13,10 +12,10 @@ export class CountryTableComponent {
   @Input()
   public _countries: Country[] | undefined = [];
 
-  public modalServiceData$: Observable<ModalHelper>;
+  public data$: Observable<Country>;
 
   constructor(private modalService: ModalService) {
-    this.modalServiceData$ = modalService.countryObservable;
+    this.data$ = modalService.countryObservable;
   }
 
   showTable(): boolean {
@@ -24,6 +23,6 @@ export class CountryTableComponent {
   }
 
   showModal(country: Country) {
-    this.modalService.setCountryObservable = { show: true, country };
+    this.modalService.setCountryObservable = country;
   }
 }

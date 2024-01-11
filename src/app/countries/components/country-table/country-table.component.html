@@ -16,7 +16,7 @@
       <tr *ngFor="let c of _countries">
         <td>{{ c.cca2 }}</td>
         <td>
-          <img [src]="c.flags.svg" width="40" alt="flag" />
+          <img src="{{c.flags.svg}}" width="40" height="30" alt="flag"/>
         </td>
         <td>{{ c.name.official }}</td>
         <td>{{ c.name.common }}</td>
@@ -56,8 +56,42 @@
   <countries-not-found></countries-not-found>
 </ng-template>
 
-<countries-modal
-  *ngIf="
-    (modalServiceData$ | async)?.show && (modalServiceData$ | async)?.country
-  "
-></countries-modal>
+<!--modal-->
+
+
+<div
+  class="modal fade"
+  id="countryModal"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ (data$ | async)?.name?.official }}
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+          <countries-modal></countries-modal>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-dismiss="modal"
+        >
+          Wow!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

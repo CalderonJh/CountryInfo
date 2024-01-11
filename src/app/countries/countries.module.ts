@@ -1,30 +1,36 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+
 import { ByCapitalComponent } from './components/by-capital-component/by-capital.component';
+import { ByCodeComponent } from './components/by-code/by-code.component';
 import { ByNameComponent } from './components/by-name-component/by-name.component';
 import { ByRegionComponent } from './components/by-region-component/by-region.component';
-import { CountryPageComponent } from './components/country-page/country-page.component';
 import { CountriesRoutingModule } from './countries-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { CountryPageComponent } from './components/country-page/country-page.component';
+import { ModalBodyComponent } from './components/modal-body/modal-body.component';
 import { SearchService } from '../shared/services/search.service';
-import { CountryTableComponent } from './components/country-table/country-table.component';
+import { SharedModule } from '../shared/shared.module';
 import { CountryNotFoundComponent } from './components/country-not-found/country-not-found.component';
-import { ByCodeComponent } from './components/by-code/by-code.component';
-import { ModalComponent } from './components/modal/modal.component';
+import { CountryTableComponent } from './components/country-table/country-table.component';
 
 @NgModule({
   declarations: [
     ByCapitalComponent,
+    ByCodeComponent,
     ByNameComponent,
     ByRegionComponent,
+    CountryNotFoundComponent,
     CountryPageComponent,
     CountryTableComponent,
-    CountryNotFoundComponent,
-    ByCodeComponent,
-    ModalComponent,
+    ModalBodyComponent,
   ],
   exports: [ByCapitalComponent],
-  imports: [CommonModule, CountriesRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    CountriesRoutingModule,
+    SharedModule,
+    NgOptimizedImage,
+  ],
   providers: [SearchService],
 })
 export class CountriesModule {}
