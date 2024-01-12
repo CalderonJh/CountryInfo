@@ -6,7 +6,6 @@ import { ByCodeComponent } from './components/by-code/by-code.component';
 import { ByNameComponent } from './components/by-name-component/by-name.component';
 import { ByRegionComponent } from './components/by-region-component/by-region.component';
 import { CountriesRoutingModule } from './countries-routing.module';
-import { CountryPageComponent } from './components/country-page/country-page.component';
 import { ModalBodyComponent } from './components/modal-body/modal-body.component';
 import { SearchService } from '../shared/services/search.service';
 import { SharedModule } from '../shared/shared.module';
@@ -20,7 +19,6 @@ import { CountryTableComponent } from './components/country-table/country-table.
     ByNameComponent,
     ByRegionComponent,
     CountryNotFoundComponent,
-    CountryPageComponent,
     CountryTableComponent,
     ModalBodyComponent,
   ],

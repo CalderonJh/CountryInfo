@@ -4,7 +4,6 @@ import { ByCapitalComponent } from './components/by-capital-component/by-capital
 import { ByNameComponent } from './components/by-name-component/by-name.component';
 import { ByRegionComponent } from './components/by-region-component/by-region.component';
 import { ByCodeComponent } from './components/by-code/by-code.component';
-import { CountryPageComponent } from './components/country-page/country-page.component';
 
 const routes: Routes = [
   {
@@ -22,10 +21,6 @@ const routes: Routes = [
   {
     path: 'by-code',
     component: ByCodeComponent,
-  },
-  {
-    path: 'by/:id',
-    component: CountryPageComponent,
   },
   {
     path: '**',
