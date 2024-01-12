@@ -1,9 +1,9 @@
-import { Country } from './country';
+import { CountryInterface } from './country.interface';
 
 export interface SearchItem {
   value: string;
-  byNameRes?: Country[];
-  byCapitalRes?: Country[];
-  byRegionRes?: Country[];
-  byCodeRes?: Country[];
+  byNameRes?: CountryInterface[];
+  byCapitalRes?: CountryInterface[];
+  byRegionRes?: CountryInterface[];
+  byCodeRes?: CountryInterface[];
 }

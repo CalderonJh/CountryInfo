@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Country } from '../../../core/interfaces/country';
+import { CountryInterface } from '../../../core/interfaces/country.interface';
 import { toString } from '../../helpers/modal-helper';
 import { InfoItem } from '../../interfaces/info-item';
 
@@ -10,7 +10,7 @@ import { InfoItem } from '../../interfaces/info-item';
 })
 export class ModalBodyComponent {
   @Input()
-  public country!: Country;
+  public country!: CountryInterface;
 
   infoItems(): InfoItem[] {
     if (!this.country) return [];

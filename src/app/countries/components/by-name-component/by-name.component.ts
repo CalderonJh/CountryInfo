@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SearchItem } from '../../../core/interfaces/search-item';
 import { SearchService } from '../../../core/services/search.service';
@@ -8,12 +8,19 @@ import { SearchService } from '../../../core/services/search.service';
   templateUrl: './by-name.component.html',
   styles: ``,
 })
-export class ByNameComponent {
+export class ByNameComponent implements OnInit {
   public data$: Observable<SearchItem>;
-  constructor(searchService: SearchService) {
+
+  private value: string = '';
+
+  constructor(private searchService: SearchService) {
     this.data$ = searchService.searchboxObservable;
   }
 
-
-
+  ngOnInit() {
+    this.searchService.searchboxObservable.subscribe((searchItem) => {
+      this.value = searchItem['value'];
+    });
+    if (this.value) this.searchService.search('name', this.value);
+  }
 }

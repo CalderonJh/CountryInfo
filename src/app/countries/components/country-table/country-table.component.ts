@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Country } from '../../../core/interfaces/country';
+import { CountryInterface } from '../../../core/interfaces/country.interface';
 import { ModalService } from '../../../core/services/modal.service';
 import { Observable } from 'rxjs';
 
@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
 })
 export class CountryTableComponent {
   @Input()
-  public _countries: Country[] | undefined = [];
+  public _countries: CountryInterface[] | undefined = [];
 
-  public data$: Observable<Country>;
+  public data$: Observable<CountryInterface>;
 
   constructor(private modalService: ModalService) {
     this.data$ = modalService.countryObservable;
@@ -22,7 +22,7 @@ export class CountryTableComponent {
     return this._countries ? this._countries.length > 0 : false;
   }
 
-  showModal(country: Country) {
+  showModal(country: CountryInterface) {
     this.modalService.setCountryObservable = country;
   }
 }

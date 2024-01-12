@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../../../core/services/search.service';
 import { Observable } from 'rxjs';
 import { SearchItem } from '../../../core/interfaces/search-item';
@@ -8,7 +8,7 @@ import { SearchItem } from '../../../core/interfaces/search-item';
   templateUrl: './by-capital.component.html',
   styles: ``,
 })
-export class ByCapitalComponent implements OnInit, OnDestroy {
+export class ByCapitalComponent implements OnInit {
   public data$: Observable<SearchItem>;
 
   private value: string = '';
@@ -21,10 +21,6 @@ export class ByCapitalComponent implements OnInit, OnDestroy {
     this.searchService.searchboxObservable.subscribe((v) => {
       this.value = v['value'];
     });
-  }
-
-  ngOnDestroy() {
-    this.searchService.setSearcboxObservable = { value: this.value };
-    console.log('saved', this.value)
+    if (this.value) this.searchService.search('capital', this.value);
   }
 }

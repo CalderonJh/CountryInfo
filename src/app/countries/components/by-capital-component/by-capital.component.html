@@ -1,4 +1,4 @@
-<div *ngIf="(data$ | async)?.byCapitalRes; else noCountryFound">
+<div *ngIf="!!(data$|async)?.byCapitalRes; else noCountryFound">
   <countries-country-table
     [_countries]="(data$ | async)?.byCapitalRes"
   ></countries-country-table>

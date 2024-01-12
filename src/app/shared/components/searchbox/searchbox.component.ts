@@ -85,7 +85,6 @@ export class SearchboxComponent implements AfterViewInit, OnInit, OnDestroy {
 
   ngOnDestroy(){
     console.log('de suscribe')
-    this.searchService.setSearcboxObservable = {value:''}
     this.debouncerSubscription?.unsubscribe();
   }
 }
