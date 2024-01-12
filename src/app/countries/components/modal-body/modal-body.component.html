@@ -27,9 +27,26 @@
       <div class="col m-2">
         <div *ngFor="let i of infoItems()" class="m-1">
           <div *ngIf="i._value != 'Not provided'">
-          <strong>{{ i.key! }}</strong>  {{i._value || 'Not provided'}} <br />
+            <strong>{{ i.key! }}</strong> {{ i._value || "Not provided" }}
+            <br />
           </div>
         </div>
+        <strong *ngIf="!!country.maps">Maps:</strong>
+        <a
+          *ngIf="!!country.maps.googleMaps"
+          href="{{ country.maps.googleMaps }}"
+          target="_blank"
+        >
+          Google Maps
+        </a>
+        <a
+          class="mx-2"
+          *ngIf="!!country.maps.googleMaps"
+          href="{{ country.maps.openStreetMaps }}"
+          target="_blank"
+        >
+          Open Street Maps
+        </a>
       </div>
     </div>
   </div>
