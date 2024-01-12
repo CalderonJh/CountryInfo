@@ -46,7 +46,7 @@ export class ModalBodyComponent {
         },
         {
           key: 'Currencies:',
-          _value: toString(this.country.currencies),
+          _value: toString(this.country.currencies, ['symbol']),
         },
         {
           key: 'Language:',
