@@ -1,18 +1,27 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef, OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { SearchService } from '../../../core/services/search.service';
 import { RadioButton } from '../../interfaces/radio-button';
+import {debounceTime, Subject, Subscription} from 'rxjs';
 
 @Component({
   selector: 'shared-searchbox',
   templateUrl: './searchbox.component.html',
   styleUrl: './searchbox.component.css',
 })
-export class SearchboxComponent implements AfterViewInit {
+export class SearchboxComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('tagInput')
-  public tagInput!: ElementRef<HTMLInputElement>;
+  public _input!: ElementRef<HTMLInputElement>;
 
   @ViewChild('selectBY')
   public selectBy!: ElementRef<HTMLDivElement>;
+
+  private debouncer: Subject<string> = new Subject<string>();
 
   public items: RadioButton[] = [
     {
@@ -37,31 +46,46 @@ export class SearchboxComponent implements AfterViewInit {
     },
   ];
 
+  private debouncerSubscription?: Subscription;
+
   constructor(private searchService: SearchService) {}
 
+  ngOnInit(): void {
+    this.debouncerSubscription =  this.debouncer.pipe(debounceTime(400)).subscribe(() => {
+      this.search();
+    });
+  }
+
   ngAfterViewInit(): void {
-    this.tagInput.nativeElement.focus();
+    this._input.nativeElement.focus();
   }
 
   search() {
     const route = this.selectBy.nativeElement
       .querySelector('.active')
       ?.getAttribute('id');
-    if (route && this.isValidSearch()) {
-      this.searchService.search(route, this.tagInput.nativeElement.value);
-      // this.tagInput.nativeElement.blur()
-    }
+    if (route && this.isValidSearch())
+      this.searchService.search(route, this._input.nativeElement.value);
   }
 
   isValidSearch(): boolean {
-    const value = this.tagInput.nativeElement.value
+    this._input.nativeElement.value = this._input.nativeElement.value
       .trim()
       .replace(/\s+/g, ' ')
-      .toLocaleLowerCase('en-US');
-    return value.length > 0;
+    return this._input.nativeElement.value.length > 0;
   }
 
   selectText() {
-    this.tagInput.nativeElement.select();
+    this._input.nativeElement.select();
+  }
+
+  onKeyPress() {
+    this.debouncer.next(this._input.nativeElement.value);
+  }
+
+  ngOnDestroy(){
+    console.log('de suscribe')
+    this.searchService.setSearcboxObservable = {value:''}
+    this.debouncerSubscription?.unsubscribe();
   }
 }

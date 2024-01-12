@@ -1,9 +1,6 @@
-export function objectValues(
-  obj: object,
-  keysToIgnore: string[] = [],
-): string[] {
-  let values: string[] = [];
+function objectValues(obj: object, keysToIgnore: string[] = []): string[] {
   if (Array.isArray(obj)) return obj;
+  let values: string[] = [];
   for (const key of Object.keys(obj)) {
     if (keysToIgnore?.includes(key)) continue;
     // @ts-ignore: The key will always be valid
@@ -12,9 +9,9 @@ export function objectValues(
       values = values.concat(objectValues(v, keysToIgnore));
     else values.push(v);
   }
-
   return values;
 }
+
 
 function numberToString(numero: number): string {
   const section = numero
@@ -23,6 +20,7 @@ function numberToString(numero: number): string {
     .split(/(?=(?:\d{3})+$)/);
   return section.join('.');
 }
+
 
 export function toString(obj: any, toIgnore?: string[]): string {
   if (!obj) return 'Not provided';

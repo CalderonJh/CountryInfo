@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, of } from 'rxjs';
+import {BehaviorSubject, catchError, of, Subject} from 'rxjs';
 import { SearchItem } from '../interfaces/search-item';
 import { Country } from '../interfaces/country';
 import { HttpClient } from '@angular/common/http';
@@ -15,8 +15,8 @@ export class SearchService {
 
   private baseURL: string = 'https://restcountries.com/v3.1';
 
-  private _searchboxObservable: BehaviorSubject<SearchItem> =
-    new BehaviorSubject<SearchItem>({ value: 'default' });
+  private _searchboxObservable: Subject<SearchItem> =
+    new Subject<SearchItem>();
 
   search(route: string, value: string) {
     // console.log(`endpoint: ${this.baseURL}/${route}/${value}`);
@@ -28,6 +28,10 @@ export class SearchService {
 
   get searchboxObservable() {
     return this._searchboxObservable.asObservable();
+  }
+
+  set setSearcboxObservable(searchItem:SearchItem){
+    this._searchboxObservable.next(searchItem)
   }
 
   handleSearchResult(route: string, value: string, res: Country[]) {

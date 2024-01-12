@@ -13,4 +13,7 @@ export class ByNameComponent {
   constructor(searchService: SearchService) {
     this.data$ = searchService.searchboxObservable;
   }
+
+
+
 }
