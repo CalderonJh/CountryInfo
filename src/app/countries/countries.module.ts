@@ -7,7 +7,6 @@ import { ByNameComponent } from './components/by-name-component/by-name.componen
 import { ByRegionComponent } from './components/by-region-component/by-region.component';
 import { CountriesRoutingModule } from './countries-routing.module';
 import { ModalBodyComponent } from './components/modal-body/modal-body.component';
-import { SearchService } from '../shared/services/search.service';
 import { SharedModule } from '../shared/shared.module';
 import { CountryNotFoundComponent } from './components/country-not-found/country-not-found.component';
 import { CountryTableComponent } from './components/country-table/country-table.component';
@@ -29,6 +28,5 @@ import { CountryTableComponent } from './components/country-table/country-table.
     SharedModule,
     NgOptimizedImage,
   ],
-  providers: [SearchService],
 })
 export class CountriesModule {}
