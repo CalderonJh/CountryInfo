@@ -11,7 +11,7 @@ import { SearchItem } from '../../../core/interfaces/search-item';
 export class ByCapitalComponent implements OnInit {
   public data$: Observable<SearchItem>;
 
-  private value: string = '';
+  public value: string = '';
 
   constructor(private searchService: SearchService) {
     this.data$ = searchService.searchboxObservable;
@@ -21,6 +21,6 @@ export class ByCapitalComponent implements OnInit {
     this.searchService.searchboxObservable.subscribe((v) => {
       this.value = v['value'];
     });
-    if (this.value) this.searchService.search('capital', this.value);
+    this.searchService.search('capital', this.value);
   }
 }

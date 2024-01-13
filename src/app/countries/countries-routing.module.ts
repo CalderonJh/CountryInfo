@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ByCapitalComponent } from './components/by-capital-component/by-capital.component';
 import { ByNameComponent } from './components/by-name-component/by-name.component';
 import { ByRegionComponent } from './components/by-region-component/by-region.component';
-import { ByCodeComponent } from './components/by-code/by-code.component';
+import { ByCodeComponent } from './components/by-code-component/by-code.component';
 
 const routes: Routes = [
   {

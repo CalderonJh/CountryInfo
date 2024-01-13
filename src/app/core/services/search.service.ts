@@ -17,8 +17,12 @@ export class SearchService {
     new BehaviorSubject<SearchItem>({ value: '' });
 
   search(route: string, value: string) {
-    console.log(`endpoint: ${this.baseURL}/${route}/${value}`);
-    if (!route || !value) throw ` value:${value} route:${route}`
+    // console.log(`endpoint: ${this.baseURL}/${route}/${value}`);
+    if (!this.isValidSearch(value)){
+      this._searchboxObservable.next({value:''})
+      return;
+      // throw `Search value is required`
+    }
     return this.http
       .get<CountryInterface[]>(`${this.baseURL}/${route}/${value}`)
       .pipe(catchError(() => of([])))
@@ -44,4 +48,8 @@ export class SearchService {
     searchItem[searchKey] = res;
     this._searchboxObservable.next(searchItem);
   }
-}
+
+  isValidSearch(value:string): boolean {
+    return value.trim()
+      .replace(/\s+/g, ' ').length > 0;
+  }}

@@ -1,4 +1,12 @@
 # WorldInfo
+Look for countries info <br>
+Angular learning...
+<ul>
+<li>Router Link</li>
+<li>Optimizations and HTTP requests</li>
+<li>RxJS</li>
+<li>Bootstrap</li>
+</ul>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
 

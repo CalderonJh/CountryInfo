@@ -64,15 +64,8 @@ export class SearchboxComponent implements AfterViewInit, OnInit, OnDestroy {
     const route = this.selectBy.nativeElement
       .querySelector('.active')
       ?.getAttribute('id');
-    if (route && this.isValidSearch())
+    if (route)
       this.searchService.search(route, this._input.nativeElement.value);
-  }
-
-  isValidSearch(): boolean {
-    this._input.nativeElement.value = this._input.nativeElement.value
-      .trim()
-      .replace(/\s+/g, ' ')
-    return this._input.nativeElement.value.length > 0;
   }
 
   selectText() {
@@ -84,7 +77,6 @@ export class SearchboxComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    console.log('de suscribe')
     this.debouncerSubscription?.unsubscribe();
   }
 }

@@ -1,4 +1,9 @@
-<div *ngIf="(data$ | async)?.byCodeRes; else noCountryFound">
+<div
+  *ngIf="
+    (data$ | async)?.byCodeRes && ((data$ | async)?.value)!.length > 0;
+    else noCountryFound
+  "
+>
   <countries-country-table
     [_countries]="(data$ | async)?.byCodeRes"
   ></countries-country-table>
