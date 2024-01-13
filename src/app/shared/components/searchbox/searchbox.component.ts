@@ -30,7 +30,7 @@ export class SearchboxComponent implements AfterViewInit, OnInit, OnDestroy {
       route: 'name',
     },
     {
-      title: 'Capital city',
+      title: 'Capital',
       link: 'by-capital',
       route: 'capital',
     },
